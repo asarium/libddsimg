@@ -17,7 +17,6 @@ if (TOPLEVEL_PROJECT)
 	option(DDSIMG_BUILD_EXAMPLES "Build examples" TRUE)
 endif ()
 
-message("${DDSIMG_BUILD_SHARED_LIB}")
 project(ddsimg)
 
 set(SOURCES
