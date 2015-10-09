@@ -17,3 +17,5 @@ target_link_libraries(dds_tests PRIVATE ddsimg gtest_main)
 target_compile_definitions(dds_tests PRIVATE "TEST_DATA_PATH=\"${CMAKE_CURRENT_SOURCE_DIR}/data/\"")
 
 add_test(AllTestsInFoo dds_tests)
+
+add_custom_target(run_tests COMMAND dds_tests)
