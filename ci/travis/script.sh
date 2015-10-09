@@ -2,11 +2,10 @@
 
 set -e
 
-cd travis-build
+cmake --build travis-build --target run_tests
 
 if [ "$TRAVIS_OS_NAME" = "linux" ]; then
-    ninja run_tests
+    cmake --build travis-build --target run_tests
 elif [ "$TRAVIS_OS_NAME" = "osx" ]; then
-    xcodebuild ARCHS=$MACOSX_ARCH ONLY_ACTIVE_ARCH=NO -configuration "$CONFIGURATION" | xcpretty -c
-    ls
+    cmake --build travis-build --target run_tests --config $CONFIGURATION | xcpretty -c
 fi
