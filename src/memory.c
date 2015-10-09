@@ -2,10 +2,7 @@
 #include "context.h"
 
 #include <assert.h>
-
-#if !defined(__APPLE__)
-#include <malloc.h>
-#endif
+#include <stdlib.h>
 
 #include <ddsimg/ddsimg.h>
 
