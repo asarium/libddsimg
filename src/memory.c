@@ -2,7 +2,11 @@
 #include "context.h"
 
 #include <assert.h>
+
++#if !defined(__APPLE__)
 #include <malloc.h>
++#endif
+
 #include <ddsimg/ddsimg.h>
 
 static void* DDSIMG_CC std_realloc(void* ud, void* ptr, size_t size)
