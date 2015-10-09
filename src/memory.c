@@ -3,9 +3,9 @@
 
 #include <assert.h>
 
-+#if !defined(__APPLE__)
+#if !defined(__APPLE__)
 #include <malloc.h>
-+#endif
+#endif
 
 #include <ddsimg/ddsimg.h>
 
