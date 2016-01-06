@@ -5,12 +5,12 @@
 
 namespace
 {
-    void* no_memory_realloc(void*, void*, size_t)
+    void* DDSIMG_CALLBACK no_memory_realloc(void*, void*, size_t)
     {
         return NULL;
     }
 
-    void no_memory_free(void*, void*)
+	void DDSIMG_CALLBACK no_memory_free(void*, void*)
     {
     }
 }

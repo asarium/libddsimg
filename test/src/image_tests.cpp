@@ -10,12 +10,12 @@
 
 namespace
 {
-    size_t file_read(void* ud, uint8_t* buf, size_t buf_len)
+    size_t DDSIMG_CALLBACK file_read(void* ud, uint8_t* buf, size_t buf_len)
     {
         return fread(buf, 1, buf_len, reinterpret_cast<FILE*>(ud));
     }
 
-    int64_t file_seek(void* ud, int64_t offset, int whence)
+    int64_t DDSIMG_CALLBACK file_seek(void* ud, int64_t offset, int whence)
     {
         if (fseek(reinterpret_cast<FILE*>(ud), offset, whence) != 0)
         {

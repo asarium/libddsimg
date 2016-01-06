@@ -133,14 +133,14 @@ typedef struct
      * @param size The wanted new size
      * @return The new memory or @c NULL on failure
      */
-    void* DDSIMG_CALLBACK (* realloc)(void* ud, void* mem, size_t size);
+	void* (DDSIMG_CALLBACK *realloc)(void* ud, void* mem, size_t size);
 
     /**
      * @brief Should behave like the standard free
      * @param ud The userdata passed at context creation
      * @param mem The memory to be freed
      */
-    void DDSIMG_CALLBACK (* free)(void* ud, void* mem);
+    void (DDSIMG_CALLBACK *free)(void* ud, void* mem);
 } DDSMemoryFunctions;
 
 /**
@@ -155,7 +155,7 @@ typedef struct
      * @param size The size to read into the buffer
      * @return The number of bytes read, return 0 at end of stream
      */
-    size_t DDSIMG_CALLBACK (* read)(void* ud, uint8_t* buf, size_t size);
+    size_t (DDSIMG_CALLBACK *read)(void* ud, uint8_t* buf, size_t size);
 
     /**
      * @brief Seek within the file
@@ -164,7 +164,7 @@ typedef struct
      * @param whence The seek mode using the stdio defines
      * @return The offset in the file after seeking
      */
-    int64_t DDSIMG_CALLBACK (* seek)(void* ud, int64_t offset, int whence);
+    int64_t (DDSIMG_CALLBACK *seek)(void* ud, int64_t offset, int whence);
 } DDSIOFunctions;
 
 typedef struct

@@ -31,7 +31,7 @@ void ddsimg_free(DDSContext* ctx, void* ptr)
 {
     assert(ctx != NULL);
 
-    return ctx->mem.funcs.free(ctx->mem.ud, ptr);
+    ctx->mem.funcs.free(ctx->mem.ud, ptr);
 }
 
 DDSMemoryFunctions* ddsimg_mem_default_memfuncs()

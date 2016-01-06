@@ -1,4 +1,5 @@
 
+set(gtest_force_shared_crt TRUE)
 add_subdirectory(gtest)
 
 set(TEST_SOURCES
