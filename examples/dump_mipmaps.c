@@ -12,14 +12,14 @@ typedef struct
     uint8_t a;
 } Color8888_t;
 
-static size_t file_read(void* ud, uint8_t* buf, size_t buf_len)
+static size_t DDSIMG_CALLBACK file_read(void* ud, uint8_t* buf, size_t buf_len)
 {
     return fread(buf, 1, buf_len, (FILE*) ud);
 }
 
-static int64_t file_seek(void* ud, int64_t offset, int whence)
+static int64_t DDSIMG_CALLBACK file_seek(void* ud, int64_t offset, int whence)
 {
-    if (fseek((FILE*) ud, offset, whence) != 0)
+    if (fseek((FILE*) ud, (long)offset, whence) != 0)
     {
         // Error
         return -1;
@@ -57,14 +57,14 @@ static void writeTGA(const char* name, uint32_t width, uint32_t height, void* da
     putc((height & 0x00FF), outf);
     putc((height & 0xFF00) / 256, outf);
     putc(32, outf);                        /* 32 bit bitmap */
-    putc(0, outf);
+    putc(32, outf);
 
     uint32_t x, y;
     for (y = 0; y < height; ++y)
     {
         for (x = 0; x < width; ++x)
         {
-            uint32_t offset = y * height + x;
+            uint32_t offset = y * width + x;
             Color8888_t c = pixel_data[offset];
 
             putc(c.b, outf);

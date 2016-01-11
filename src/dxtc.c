@@ -124,8 +124,7 @@ static void decompress_DXT1(MipmapData* compressed, MipmapData* decompressed)
                         select = (bitmask & (0x03 << k * 2)) >> k * 2;
 
                         size_t pixel_x = x + i;
-                        // Decompressed data is flipped on the Y-axis, this accounts for that
-                        size_t pixel_y = dec_height - (y + j) - 1;
+                        size_t pixel_y = y + j;
 
                         size_t offset = sizeof_plane * z + sizeof_line * pixel_y + pixel_x;
 
@@ -206,8 +205,7 @@ static void decompress_DXT3(MipmapData* compressed, MipmapData* decompressed)
                         select = (bitmask & (0x03 << k * 2)) >> k * 2;
 
                         size_t pixel_x = x + i;
-                        // Decompressed data is flipped on the Y-axis, this accounts for that
-                        size_t pixel_y = dec_height - (y + j) - 1;
+                        size_t pixel_y = y + j;
 
                         uint8_t pixel_alpha = (uint8_t) (word & 0x0F);
                         pixel_alpha = pixel_alpha | pixel_alpha << 4;
@@ -322,8 +320,7 @@ static void decompress_DXT5(MipmapData* compressed, MipmapData* decompressed)
                         select = (bitmask & (0x03 << k * 2)) >> k * 2;
 
                         size_t pixel_x = x + i;
-                        // Decompressed data is flipped on the Y-axis, this accounts for that
-                        size_t pixel_y = dec_height - (y + j) - 1;
+                        size_t pixel_y = y + j;
 
                         size_t offset = sizeof_plane * z + sizeof_line * pixel_y + pixel_x;
 
