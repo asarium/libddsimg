@@ -126,10 +126,9 @@ static void decompress_DXT1(MipmapData* compressed, MipmapData* decompressed)
                         size_t pixel_x = x + i;
                         size_t pixel_y = y + j;
 
-                        size_t offset = sizeof_plane * z + sizeof_line * pixel_y + pixel_x;
-
                         if (pixel_x < dec_width && pixel_y < dec_height)
                         {
+                            size_t offset = sizeof_plane * z + sizeof_line * pixel_y + pixel_x;
                             data_out[offset] = colors[select];
                         }
                     }
