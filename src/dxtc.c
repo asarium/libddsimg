@@ -41,6 +41,7 @@ static Color8888 dxtc_get_rgba_color(uint16_t color)
     out.r = r << 3 | r >> 2;
     out.g = g << 2 | g >> 3;
     out.b = b << 3 | r >> 2;
+    out.a = 0xFF; // Default is completely opaque
 
     return out;
 }
