@@ -40,21 +40,21 @@ extern "C"
  * @note  Compare with DDSIMG_VERSION_MAJOR to check if the runtime version is compatible
  * @return The major version of the runtime library
  */
-uint32_t DDSIMG_API ddsimg_version_major();
+uint32_t DDSIMG_API ddsimg_version_major(void);
 
 /**
  * @brief Determines the minor version this library was compiled with.
  * @note  Compare with DDSIMG_VERSION_MINOR to check if the runtime version is compatible
  * @return The minor version of the runtime library
  */
-uint32_t DDSIMG_API ddsimg_version_minor();
+uint32_t DDSIMG_API ddsimg_version_minor(void);
 
 /**
  * @brief Determines the patch version this library was compiled with.
  * @note  Compare with DDSIMG_VERSION_PATCH to check if the runtime version is compatible
  * @return The patch version of the runtime library
  */
-uint32_t DDSIMG_API ddsimg_version_patch();
+uint32_t DDSIMG_API ddsimg_version_patch(void);
 
 /**
  * @brief Defines the various types of error codes an API function can return
